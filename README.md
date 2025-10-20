@@ -60,6 +60,14 @@ However, this formulation is limited in its ability to incorporate interpretable
 In contrast, deterministic degradation models, such as Cold Diffusion, replace the stochastic noise process with a physically interpretable degradation process.
 This formulation preserves temporal consistency and structural semantics while aligning more naturally with real-world degradation patterns, allowing the degraded state x_t to be computed directly from any time step t, which is consistent with the classical DDPM.
 
+  <img src="./exp/degrade.svg" width=60%>
+  
+**Training**
+Inspired by the data generation strategy in TEMImageNet, we sample raw atom maps (no-background-noise version) from the TEMImageNet dataset (14,364 samples in total) and apply our proposed degradation process dynamically during training to avoid duplication. For each sample, the clean image is used as x_0, and a degraded version is generated as x_T. The intermediate frame x_t is synthesized via temporal interpolation.
+Our network is implemented in PyTorch and trained on a single NVIDIA RTX 3090 GPU. We use a batch size of 32 and input resolution of 256 x 256. The model is trained for 200 epochs using the AdamW optimizer with an initial learning rate of 0.0001, decayed progressively with a cosine scheduler to support fine-tuning during the later training stages. Training completes in 5.83 hours under our setup.
+  <img src="./exp/dataset.svg" width=60%>
+
+
 
 ## Experimental Results
 
@@ -67,10 +75,10 @@ This formulation preserves temporal consistency and structural semantics while a
   <img src="./exp/additional.svg" width=80%>
 
 - **Explicity:** Output the estimated transform matrix between frames explicitly.
-  <img src="./Figure/drift_test.svg" width=70%>
+  <img src="./exp/drift_test.svg" width=70%>
 
 - **Accuracy:** Give an accurate overall degradation intensity of the sample.
-  <img src="./Figure/damage_test" width=100%>
+  <img src="./exp/damage_test" width=100%>
 
 
 
