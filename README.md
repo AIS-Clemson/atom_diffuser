@@ -78,7 +78,7 @@ Our network is implemented in PyTorch and trained on a single NVIDIA RTX 3090 GP
   <img src="./exp/drift_test.svg" width=70%>
 
 - **Accuracy:** Give an accurate overall degradation intensity of the sample.
-  <img src="./exp/damage_test" width=100%>
+  <img src="./exp/damage_test.svg" width=100%>
 
 
 
