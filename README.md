@@ -26,6 +26,66 @@ In this work, we present AtomDiffuser, a time-aware degradation modeling framewo
     <img src="./exp/frame.svg" alt="" style="width: 100%;">
 </div>
 
+
+
+
+
+## Quick Tutorial
+
+1. Run `main_test.py` as a demo to show the proposed method from the paper.
+Go to [test](test) to check the outputs <br>
+
+2. To train the model, first, please download `TEMImageNet` dataset from: [https://github.com/xinhuolin/TEM-ImageNet-v1.3](https://github.com/xinhuolin/TEM-ImageNet-v1.3) and place it into the `` folder. <br>
+Run `main_train.py` to train the model on the `TEMImageNet`. <br>
+Go to [exp](output) to check the training process and results <br>
+
+We will update more details later according to the request. Please contact us anytime if you have questions.
+
+## Sample Dataset
+
+<img src="./Figure/teaser_2.jpg" width=70%>
+
+- **Dataset:** Download from [Google Drive]()
+
+---
+
+
+## Key Features
+
+- **Training-Free Diffusion Framework:** Generates images from binary skeletons without the need for model training or fine-tuning.
+- **Diverse Backgrounds:** Creates images with varied and realistic backgrounds, enhancing model generalizability.
+
+## Methodology
+
+<img src="./Figure/latent_4.jpg" width=100%>
+
+**Diffusion Process:**
+   - Combines masks with controllable noise, processed through a Variational Autoencoder (VAE) to generate latent variables.
+   - The denoising U-Net refines these variables to produce realistic images guided by text prompts.
+
+
+## Experimental Results
+
+<img src="./Figure/grid_3.jpg" width=100%>
+
+- **High-Quality:** Lowest FID score compared to other methods, indicating better realistic styles.
+- **Consistency:** Morphology preserving, the skeleton shape is well-kept in synthesized images.
+
+<img src="./Figure/abl.png" width=70%>
+
+For more details, visit the [Project Page](https://arazi2.github.io/aisends.github.io/project/Prism).
+
+
+
+
+
+
+
+
+
+
+
+
  
 ### Acknowledgements:
 Please cite our work if you find this project helpful.
